@@ -13,7 +13,7 @@ const init = async () => {
 
     try {
         //Initialize the database connection
-        await database;
+        database;
 
         //Register Routes
         await server.register(authRoutes);

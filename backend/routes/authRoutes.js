@@ -10,6 +10,11 @@ const authRoutes = {
         path: '/api/v1/auth/signup',
         handler: authController.signUp,
       },
+      {
+        method: 'POST',
+        path: '/api/v1/auth/login',
+        handler: authController.login, 
+      }
     ]);
   },
 };

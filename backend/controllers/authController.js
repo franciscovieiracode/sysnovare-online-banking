@@ -43,6 +43,30 @@ const signUp = async (request, h) => {
   }
 };
 
+const login = async (request, h) => {
+    try {
+        const { email, password } = request.payload;
+    
+        // Find the customer by email
+        const customer = await Customer.findOne({ $or: [{ email }, { email: email }] });
+    
+        if (!customer || !(await customer.comparePassword(password))) {
+          return h.response({ message: 'Invalid credentials' }).code(401);
+        }
+    
+        // Generate a JWT token for the authenticated user
+        const token = jwt.sign({ id: customer._id }, secretKey, { expiresIn: '24h' });
+    
+        return { 
+            "status": true,
+            "token" : token 
+        };
+      } catch (error) {
+        console.error('Error logging in:', error);
+        return h.response({ message: 'Error logging in' }).code(500);
+      }}
+
 module.exports = {
   signUp,
+  login
 };
