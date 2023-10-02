@@ -1,4 +1,6 @@
 const customerController = require('../controllers/costumerController');
+const Joi = require('joi');
+
 
 const customerRoutes = {
   name: 'customerRoutes',
@@ -9,6 +11,10 @@ const customerRoutes = {
         method: 'GET',
         path: '/',
         handler: customerController.getCustomer,
+        options: {
+          tags: ['api','auth'],
+          description: 'Endpoint to Create an account',
+        }
       },
       {
         method: 'GET',

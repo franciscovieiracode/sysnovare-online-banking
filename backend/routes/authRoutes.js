@@ -1,4 +1,5 @@
 const authController = require('../controllers/authController');
+const Joi = require('joi');
 
 const authRoutes = {
   name: 'authRoutes',
@@ -9,11 +10,33 @@ const authRoutes = {
         method: 'POST',
         path: '/api/v1/auth/signup',
         handler: authController.signUp,
+        options: {
+          tags: ['api'],
+          description: 'Endpoint to Create an account',
+          validate: {
+            payload: Joi.object({
+              firstName: Joi.string().required().description('User first name'),
+              lastName: Joi.string().required().description('User last name'),
+              email: Joi.string().email().required().description('User email'),
+              password: Joi.string().required().description('User password'),
+            }),
+          },
+        }
       },
       {
         method: 'POST',
         path: '/api/v1/auth/login',
         handler: authController.login, 
+        options: {
+          tags: ['api'],
+          description: 'Endpoint to Login to an account',
+          validate: {
+            payload: Joi.object({
+              email: Joi.string().email().required().description('User email'),
+              password: Joi.string().required().description('User password'),
+            }),
+          },
+        }
       }
     ]);
   },
