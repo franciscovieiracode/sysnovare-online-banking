@@ -4,11 +4,12 @@ const Hapi = require('@hapi/hapi');
 const Inert = require('@hapi/inert');
 const Vision = require('@hapi/vision');
 const Joi = require('joi');
-
+const hapiAuthJwt2 = require('hapi-auth-jwt2');
 
 const database = require('./config/database');
 const authRoutes = require('./routes/authRoutes')
-const customerRoutes = require('./routes/costumerRoutes')
+const customerRoutes = require('./routes/costumerRoutes');
+const { secretKey } = require('./config/jwtSecret');
 
 const init = async () => {
     const server = Hapi.server({
@@ -34,6 +35,21 @@ const init = async () => {
             plugin: require('hapi-swagger'),
             options: swaggerOptions,
           });
+
+        //Register JWT-Hapi-Plugin
+        await server.register(hapiAuthJwt2)
+
+        server.auth.strategy('jwt', 'jwt',{
+            key: secretKey,
+            validate: function(){
+                return {isValid: true}
+            },
+            verifyOptions: {
+                algorithms: ['HS256']
+            }
+        })
+
+        server.auth.default('jwt')
 
         //Register Routes
         await server.register(authRoutes);

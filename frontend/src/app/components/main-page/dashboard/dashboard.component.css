@@ -1,0 +1,31 @@
+.info-card {
+    width: 200px; /* Adjust the card width as needed */
+    margin: 0 auto; /* Center the card horizontally */
+  }
+  
+  .center-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 70%; /* Make the container fill the entire viewport height */
+  }
+  
+  .info-card {
+    width: 40rem; /* Adjust the card width as needed */
+    height: 25rem;
+}
+  
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px; /* Add spacing between rows */
+  }
+  
+  .info-field {
+    flex: 1; /* Each field takes equal width within a row */
+    text-align: center; /* Center the text within each field */
+  }
+  
+  /* Customize additional styles as needed */
+  

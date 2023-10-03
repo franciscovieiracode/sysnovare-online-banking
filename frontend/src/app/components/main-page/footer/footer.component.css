@@ -1,0 +1,33 @@
+.footer-toolbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white !important; /* Set the background color to white */
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem; /* Adjust the spacing between items as needed */
+    text-align: center;
+  }
+  
+  .footer-item {
+    font-size: 1rem;
+    color: red; /* Customize the text color */
+    cursor: pointer;
+  }
+  
+  .footer-copyright {
+    margin-top: 20px; /* Adjust the space between the content and copyright text */
+    font-size: 0.8rem; /* Customize the copyright text size */
+    color: red; /* Customize the copyright text color */
+  }
+  

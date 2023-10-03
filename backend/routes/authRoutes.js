@@ -11,6 +11,9 @@ const authRoutes = {
         path: '/api/v1/auth/signup',
         handler: authController.signUp,
         options: {
+          //Open route
+          auth: false,
+          //Swagger Specification
           tags: ['api'],
           description: 'Endpoint to Create an account',
           validate: {
@@ -28,6 +31,9 @@ const authRoutes = {
         path: '/api/v1/auth/login',
         handler: authController.login, 
         options: {
+          //Open route
+          auth: false,
+          //Swagger Specification
           tags: ['api'],
           description: 'Endpoint to Login to an account',
           validate: {

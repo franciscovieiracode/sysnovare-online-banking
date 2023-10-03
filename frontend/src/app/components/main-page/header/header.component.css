@@ -1,0 +1,64 @@
+.logo-container {
+    flex: 1;
+    display: fix;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 2rem;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    margin-right: 2rem;
+  }
+  
+  /* Adjust the button style */
+  .button-container button {
+    display: flex;
+    align-items: center;
+    margin-right: 3rem;
+    transition: box-shadow 0.3s; /* Add a smooth transition for the shadow effect */
+  }
+  
+  /* Add a shadow effect around the entire button on hover */
+  .button-container button:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  }
+  
+  /* Add a shadow effect around the mat-icon and text on hover */
+  .button-container button:hover .mat-icon,
+  .button-container button:hover .text {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  }
+  
+  /* Remove the shadow effect from the mat-icon by default */
+  .button-container button .mat-icon {
+    box-shadow: none; /* Remove the mat-icon shadow */
+  }
+  
+  .button-spacing {
+    margin-left: 6rem;
+  }
+  
+  /* Add a simple hover effect to change the text color */
+  .button-container button:hover .text {
+    color: red; /* Change the text color on hover */
+  }
+  
+  ::ng-deep .button-container button:focus {
+    outline: none !important; /* Important to ensure it overrides other styles */
+  }
+  
+  .text {
+    font-size: 1rem;
+    color: #333;
+    margin-left: 0.5rem;
+  }
+  
+  .custom-header {
+    height: 4.5rem;
+    background-color: white !important; /* Set the background color to white */
+  }
+  
