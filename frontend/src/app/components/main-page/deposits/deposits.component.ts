@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OperationsService } from 'src/app/services/money-management/operations.service';
 
 @Component({
   selector: 'app-deposits',
@@ -7,13 +8,26 @@ import { Component } from '@angular/core';
 })
 export class DepositsComponent {
 
-  depositAmount:undefined
+  depositAmount:number
   errorMessage:string | undefined = undefined;
   
-  constructor(){
+  constructor(private addBalance:OperationsService){
+    this.depositAmount=0;
   }
 
   depositFunds(){
-    alert("deposited")
+    this.addBalance.addBalance(this.depositAmount).subscribe({
+      next: (data) => {
+        if(data && data.status == true){
+          console.log(data);
+        }
+      },
+      error: (error) =>{
+        console.log(error.error);
+        
+      },
+      complete: () => console.info('Added Ammount') 
+  })
   }
+
 }

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
 
-const endpoint = 'http://localhost:3000/api/v1/profile/';
+const endpoint = 'http://localhost:3000/api/v1/money-management/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json'
@@ -13,15 +13,18 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+export class OperationsService {
 
-export class ProfileService {
+  constructor(private http: HttpClient, private router:Router) { }
 
-  constructor(private http: HttpClient) { }
+  //Add Balance to account
+  addBalance(ammount:number):Observable<any>{
+    return this.http.post(endpoint+"add-balance",new addBalanceModel(ammount)).pipe(catchError(this.handleError));
+  }
 
-  //Get Profile info
-  getCurrentProfile():Observable<any>{
-    return this.http.get(endpoint+"get-profile",httpOptions)
-    .pipe(catchError(this.handleError));
+  //Withdraw money
+  withdrawMoney(){
+    
   }
 
   handleError(error:HttpErrorResponse) {
@@ -30,4 +33,8 @@ export class ProfileService {
     });
   }
 
+}
+
+export class addBalanceModel{
+  constructor(ammount:number){}
 }

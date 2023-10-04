@@ -19,12 +19,13 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router:Router) { }
 
-
+  //Login
   login(email:string, password:string):Observable<any>{
 
     return this.http.post<any>(endpoint+"login", new LoginModel(email, password)).pipe(catchError(this.handleError));
   }
 
+  //Signup
   signup(firstName:string, lastName:string, email:string,password:string):Observable<any>{
     return this.http.post<any>(endpoint+"signup", new RegisterModel(firstName, lastName,email,password)).pipe(catchError(this.handleError));
   }

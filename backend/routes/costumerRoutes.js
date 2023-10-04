@@ -13,15 +13,18 @@ const customerRoutes = {
         handler: customerController.getCustomer,
         options: {
           tags: ['api','auth'],
-          description: 'Endpoint to Create an account',
+          description: 'Endpoint to Get Profile Data',
         }
       },
       {
         method: 'GET',
-        path: '/ola',
-        handler: customerController.getAllCustomers1,
+        path: '/api/v1/profile/get-moviments',
+        handler: customerController.getMoviments,
+        options: {
+          tags: ['api','auth'],
+          description: 'Endpoint to Get Profile Moviments',
+        }
       }
-      
     ]);
   },
 };

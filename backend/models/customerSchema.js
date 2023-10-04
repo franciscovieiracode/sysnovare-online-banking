@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const Movement = require('./movementSchema')
 
 const customerSchema = new mongoose.Schema({
   firstName: {
@@ -30,7 +31,13 @@ const customerSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true, //Guarantees unique IBAN
-  }
+  },
+  movements: [
+    {
+      type: mongoose.Schema.Types.Mixed,
+      ref: 'Movement',
+    },
+  ],
 });
 
 customerSchema.pre('save', async function (next) {

@@ -29,4 +29,8 @@ export class SidebarComponent {
   phonePayment(){
     this.router.navigate(['phone-payment'])
   }
+
+  withdraw(){
+    this.router.navigate(['withdraw'])
+  }
 }

@@ -9,6 +9,7 @@ const hapiAuthJwt2 = require('hapi-auth-jwt2');
 const database = require('./config/database');
 const authRoutes = require('./routes/authRoutes')
 const customerRoutes = require('./routes/costumerRoutes');
+const moneyManagementRoutes = require('./routes/moneyManagementRoutes');
 const { secretKey } = require('./config/jwtSecret');
 
 const init = async () => {
@@ -57,6 +58,7 @@ const init = async () => {
         //Register Routes
         await server.register(authRoutes);
         await server.register(customerRoutes);
+        await server.register(moneyManagementRoutes)
 
         // Start the Hapi.js server
         await server.start();

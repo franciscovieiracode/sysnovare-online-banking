@@ -1,0 +1,46 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="container-fluid p-0 mt-2">
+  <div class="container">
+    <div class="all">
+      <p class="title mat-display-2 pb-2">Levantamento de Dinheiro</p>
+      <form #formData="ngForm">
+        <div class="form-group row pb-2">
+          <div class="col-sm-7">
+            <mat-form-field appearance="fill">
+              <mat-label>Quantidade a Levantar</mat-label>
+              <input
+                type="number"
+                required
+                matInput
+                id="inputWithdrawAmount"
+                placeholder="Ex: 100.00"
+                name="withdrawAmount"
+                [(ngModel)]="withdrawAmount"
+                #withdrawAmountControl="ngModel"
+              />
+              <mat-error *ngIf="withdrawAmountControl.touched && !withdrawAmountControl.valid">Campo Obrigatório!</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div *ngIf="errorMessage" class="col-sm-7 mb-1">
+            <div class="alert alert-danger mt-1" role="alert">{{ errorMessage }}</div>
+          </div>
+          <div class="col-sm-7 d-flex justify-content-end">
+            <button
+              type="button"
+              class="mat-raised-button mat-primary custom-button"
+              (click)="withdrawMoney()"
+              [disabled]="!formData.valid"
+            >
+              Levantar Dinheiro
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
