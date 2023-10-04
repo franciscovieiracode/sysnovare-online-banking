@@ -1,0 +1,103 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="container-fluid p-0 mt-2">
+    <div class="container">
+      <div class="all">
+        <p class="title mat-display-2 pb-2">Introduza os dados da Transferência</p>
+        <form #formData="ngForm">
+          <div class="form-group row pb-2">
+            <div class="col-sm-7">
+              <mat-form-field appearance="fill">
+                <mat-label>Nome do Destinatário</mat-label>
+                <input
+                  type="text"
+                  required
+                  matInput
+                  id="inputNome"
+                  placeholder="Ex: Francisco Vieira"
+                  name="nome"
+                  [(ngModel)]="nomeDestinatario"
+                  #emailControl="ngModel"
+                />
+                <mat-error *ngIf="emailControl.touched && !emailControl.valid">Campo Obrigatório!</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="form-group row pb-2">
+            <div class="col-sm-7">
+              <mat-form-field appearance="fill">
+                <mat-label>Iban</mat-label>
+                <input
+                  type="text"
+                  required
+                  matInput
+                  id="inputIban"
+                  placeholder="Ex: PT50505063199957263759954"
+                  name="iban"
+                  [(ngModel)]="iban"
+                  #ibanControl="ngModel"
+                  minlength="25"
+                  maxlength="25"
+                />
+                <mat-error class="error" *ngIf="ibanControl.touched && !ibanControl.valid">Campo Obrigatório!</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="form-group row pb-2">
+            <div class="col-sm-7">
+              <mat-form-field appearance="fill">
+                <mat-label>Quantidade</mat-label>
+                <input
+                  type="number"
+                  required
+                  matInput
+                  id="inputAmmount"
+                  placeholder="Ex: 12.5"
+                  name="ammount"
+                  [(ngModel)]="ammount"
+                  #ammountControl="ngModel"
+                />
+                <mat-error class="error" *ngIf="ammountControl.touched && !ammountControl.valid">Campo Obrigatório!</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="form-group row pb-2">
+            <div class="col-sm-7">
+              <mat-form-field appearance="fill">
+                <mat-label>Descrição</mat-label>
+                <input
+                  type="text"
+                  matInput
+                  id="inputDescription"
+                  name="description"
+                  [(ngModel)]="description"
+                  #descriptionControl="ngModel"
+                  maxlength="100"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div *ngIf="errorMessage" class="col-sm-7 mb-1">
+              <div class="alert alert-danger mt-1" role="alert">{{ errorMessage }}</div>
+            </div>
+            <div class="col-sm-7 d-flex justify-content-end">
+              <button
+                type="button"
+                class="mat-raised-button mat-primary custom-button"
+                (click)="transfer()"
+                [disabled]="!formData.valid"
+              >
+                Confirmar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<app-footer></app-footer>

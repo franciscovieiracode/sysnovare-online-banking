@@ -1,0 +1,88 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="container-fluid p-0 mt-2">
+  <div class="container">
+    <div class="all">
+      <p class="title mat-display-2 pb-2">Pagamento de Serviços</p>
+      <form #formData="ngForm">
+        <div class="form-group row pb-2">
+          <div class="col-sm-7">
+            <mat-form-field appearance="fill">
+              <mat-label>Entidade</mat-label>
+              <input
+                type="text"
+                required
+                matInput
+                id="inputEntity"
+                placeholder="Ex: 12345"
+                name="entity"
+                [(ngModel)]="entity"
+                #entityControl="ngModel"
+                minlength="5"
+                maxlength="5"
+              />
+              <mat-error *ngIf="entityControl.touched && !entityControl.valid">Campo Obrigatório!</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-group row pb-2">
+          <div class="col-sm-7">
+            <mat-form-field appearance="fill">
+              <mat-label>Referência</mat-label>
+              <input
+                type="text"
+                required
+                matInput
+                id="inputReference"
+                placeholder="Ex: 987654321"
+                name="reference"
+                [(ngModel)]="reference"
+                #referenceControl="ngModel"
+                minlength="9"
+                maxlength="9"
+              />
+              <mat-error *ngIf="referenceControl.touched && !referenceControl.valid">Campo Obrigatório!</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-group row pb-2">
+          <div class="col-sm-7">
+            <mat-form-field appearance="fill">
+              <mat-label>Quantidade</mat-label>
+              <input
+                type="number"
+                required
+                matInput
+                id="inputAmount"
+                placeholder="Ex: 50.00"
+                name="amount"
+                [(ngModel)]="amount"
+                #amountControl="ngModel"
+              />
+              <mat-error *ngIf="amountControl.touched && !amountControl.valid">Campo Obrigatório!</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div *ngIf="errorMessage" class="col-sm-7 mb-1">
+            <div class="alert alert-danger mt-1" role="alert">{{ errorMessage }}</div>
+          </div>
+          <div class="col-sm-7 d-flex justify-content-end">
+            <button
+              type="button"
+              class="mat-raised-button mat-primary custom-button"
+              (click)="makePayment()"
+              [disabled]="!formData.valid"
+            >
+              Efetuar Pagamento
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

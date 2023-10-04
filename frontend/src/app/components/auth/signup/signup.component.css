@@ -1,0 +1,74 @@
+/* styles.css */
+.container {
+    padding: 20px;
+    background-color: #95696b;
+    background-image: linear-gradient(315deg, #f9eeef 0%, #b42b06 80%);
+    min-height: calc(100vh - 200px);
+  }
+  
+  .all {
+    margin-top: 4rem;
+  }
+  
+  .error {
+    font-weight: bold;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    margin-left: 65%;
+    font-weight: bold;
+  }
+  
+  mat-form-field {
+    width: 45%; /* Set the desired width */
+    margin-right: 5%; /* Add some right margin for spacing */
+  }
+  
+  mat-label {
+    font-size: 0.75rem; /* Set the desired font size */
+  }
+  
+  /* Adjust the input text size */
+  mat-input {
+    font-size: 0.875rem; /* Set the desired font size */
+  }
+  
+  .form-group {
+    margin-bottom: 0;
+    margin-left: 65%;
+  }
+  
+  
+  .alert {
+    margin-top: 0.25rem;
+  }
+  
+  /* Custom button style */
+  .custom-button {
+    background-color: #ff5733;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: orange;
+      cursor: pointer;
+    }
+  
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  
+  .create-account {
+    text-decoration: none;
+    margin-left: 10px;
+    color: #ff5733;
+    font-weight: bold;
+  }
+  

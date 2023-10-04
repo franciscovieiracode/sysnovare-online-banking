@@ -7,6 +7,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
+
+
 
 
 
@@ -17,6 +22,14 @@ import { DashboardComponent } from './components/main-page/dashboard/dashboard.c
 import { FooterComponent } from './components/main-page/footer/footer.component';
 import { HeaderComponent } from './components/main-page/header/header.component';
 import { SidebarComponent } from './components/main-page/sidebar/sidebar.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { AuthStatusComponent } from './components/auth/auth-status/auth-status.component';
+import { AuthInterceptorInterceptor } from './interceptors/auth';
+import { TransfersComponent } from './components/main-page/transfers/transfers.component';
+import { DepositsComponent } from './components/main-page/deposits/deposits.component';
+import { PaymentsComponent } from './components/main-page/payments/payments.component';
+import { CellphonePaymentComponent } from './components/main-page/cellphone-payment/cellphone-payment.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +37,14 @@ import { SidebarComponent } from './components/main-page/sidebar/sidebar.compone
     DashboardComponent,
     FooterComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    LoginComponent,
+    SignupComponent,
+    AuthStatusComponent,
+    TransfersComponent,
+    DepositsComponent,
+    PaymentsComponent,
+    CellphonePaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +56,12 @@ import { SidebarComponent } from './components/main-page/sidebar/sidebar.compone
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    HttpClientModule,
+    MatSelectModule
   ],
-  providers: [],
+  providers: [AuthStatusComponent,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

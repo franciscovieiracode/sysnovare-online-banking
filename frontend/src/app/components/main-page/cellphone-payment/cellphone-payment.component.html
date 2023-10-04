@@ -1,0 +1,83 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="container-fluid p-0 mt-2">
+  <div class="container">
+    <div class="all">
+      <p class="title mat-display-2 pb-2">Carregamento de Telemóvel</p>
+      <form #formData="ngForm">
+        <div class="form-group row pb-2">
+          <div class="col-sm-7">
+            <mat-form-field appearance="fill">
+                <mat-label>Rede</mat-label>
+                <mat-select
+                  name="provider"
+                  [(ngModel)]="selectedProvider"
+                  required
+                >
+                  <mat-option *ngFor="let provider of providers" [value]="provider">{{ provider }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="formData.controls['provider'].touched && formData.controls['provider'].invalid">Campo Obrigatório!</mat-error>
+              </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-group row pb-2">
+          <div class="col-sm-7">
+            <mat-form-field appearance="fill">
+              <mat-label>Número de Telemóvel</mat-label>
+              <input
+                type="tel"
+                required
+                matInput
+                id="inputPhoneNumber"
+                placeholder="Ex: 910000000"
+                name="phoneNumber"
+                [(ngModel)]="phoneNumber"
+                #phoneNumberControl="ngModel"
+                minlength="9"
+                maxlength="9"
+              />
+              <mat-error *ngIf="phoneNumberControl.touched && !phoneNumberControl.valid">Campo Obrigatório!</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-group row pb-2">
+          <div class="col-sm-7">
+            <mat-form-field appearance="fill">
+              <mat-label>Quantidade</mat-label>
+              <input
+                type="number"
+                required
+                matInput
+                id="inputAmount"
+                placeholder="Ex: 25.00"
+                name="amount"
+                [(ngModel)]="amount"
+                #amountControl="ngModel"
+              />
+              <mat-error *ngIf="amountControl.touched && !amountControl.valid">Campo Obrigatório!</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div *ngIf="errorMessage" class="col-sm-7 mb-1">
+            <div class="alert alert-danger mt-1" role="alert">{{ errorMessage }}</div>
+          </div>
+          <div class="col-sm-7 d-flex justify-content-end">
+            <button
+              type="button"
+              class="mat-raised-button mat-primary custom-button"
+              (click)="makePhonePayment()"
+              [disabled]="!formData.valid"
+            >
+              Efetuar Pagamento de Telemóvel
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

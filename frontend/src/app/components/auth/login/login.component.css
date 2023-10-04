@@ -1,0 +1,75 @@
+/* styles.css */
+.container {
+    padding: 20px;
+    background-color: #95696b;
+    background-image: linear-gradient(315deg, #f9eeef 0%, #b42b06 80%);
+    min-height: calc(100vh - 200px); 
+}
+
+.all{
+    margin-top: 7rem;
+}
+  
+.error{
+    font-weight: bold;
+}
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    margin-left: 65%;
+    font-weight: bold;
+  }
+  
+  mat-form-field {
+    width: 60%; /* Set the desired width */
+  }
+  mat-label {
+    font-size: 1rem; /* Set the desired font size */
+  }
+  
+  /* Adjust the input text size */
+  mat-input {
+    font-size: 0.875rem; /* Set the desired font size */
+  }
+
+  .form-group {
+    margin-bottom: 0;
+    margin-left: 65%;
+  }
+  
+  .alert {
+    margin-top: 0.25rem;
+  }
+  
+/* styles.css */
+/* Custom button style */
+.custom-button {
+    background-color: #ff5733; /* Custom background color */
+    color: #ffffff; /* Custom text color */
+    font-weight: bold; /* Custom font weight */
+    border: none; /* Remove the button border */
+    border-radius: 5px; /* Add some border radius for a rounded appearance */
+    padding: 10px 20px; /* Adjust padding as needed */
+    transition: background-color 0.3s ease; /* Add a smooth transition for hover effect */
+  
+    /* Hover effect */
+    &:hover {
+      background-color: orange; /* Custom hover background color */
+      cursor: pointer;
+    }
+  
+    /* Remove the default box-shadow on focus (optional) */
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .login-account{
+    text-decoration: none; /* Remove underline */
+    margin-left: 10px; /* Add left margin for spacing (adjust as needed) */
+    color: #ff5733; /* Customize the text color */
+    font-weight: bold; /* Make the text bold */
+    }
+  
+  

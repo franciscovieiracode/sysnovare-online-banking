@@ -6,7 +6,10 @@ const getCustomer = async (request, h) => {
 
   const customer = await Customer.findById(userId);
 
-    return {customer}
+    return {
+      "status":true,
+      "customer":customer,
+    }
   };
 
   const getAllCustomers1 = (request, h) => {

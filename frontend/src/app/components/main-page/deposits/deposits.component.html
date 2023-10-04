@@ -1,0 +1,46 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="container-fluid p-0 mt-2">
+  <div class="container">
+    <div class="all">
+      <p class="title mat-display-2 pb-2">Depósito de Fundos</p>
+      <form #formData="ngForm">
+        <div class="form-group row pb-2">
+          <div class="col-sm-7">
+            <mat-form-field appearance="fill">
+              <mat-label>Quantidade a Depositar</mat-label>
+              <input
+                type="number"
+                required
+                matInput
+                id="inputAmount"
+                placeholder="Ex: 50.00"
+                name="amount"
+                [(ngModel)]="depositAmount"
+                #amountControl="ngModel"
+              />
+              <mat-error *ngIf="amountControl.touched && !amountControl.valid">Campo Obrigatório!</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div *ngIf="errorMessage" class="col-sm-7 mb-1">
+            <div class="alert alert-danger mt-1" role="alert">{{ errorMessage }}</div>
+          </div>
+          <div class="col-sm-7 d-flex justify-content-end">
+            <button
+              type="button"
+              class="mat-raised-button mat-primary custom-button"
+              (click)="depositFunds()"
+              [disabled]="!formData.valid"
+            >
+              Confirmar Depósito
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -9,7 +9,7 @@ const customerRoutes = {
     server.route([
       {
         method: 'GET',
-        path: '/',
+        path: '/api/v1/profile/get-profile',
         handler: customerController.getCustomer,
         options: {
           tags: ['api','auth'],

@@ -1,0 +1,65 @@
+<app-header></app-header>
+<div class="container-fluid p-0 mt-2">
+  <div class="container">
+    <div class="all">
+      <p class="title mat-display-2 pb-2">Santander NET</p>
+      <form #formData="ngForm">
+        <div class="form-group row pb-2">
+          <div class="col-sm-7">
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input
+                type="email"
+                required
+                matInput
+                id="inputEmail"
+                placeholder="Ex: sys@gmail.com"
+                name="email"
+                [(ngModel)]="email"
+                #emailControl="ngModel"
+                email="true"
+              />
+              <mat-error *ngIf="emailControl.touched && !emailControl.valid">Email Inválido!</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="form-group row pb-2">
+          <div class="col-sm-7">
+            <mat-form-field appearance="fill">
+              <mat-label>Password</mat-label>
+              <input
+                type="password"
+                required
+                matInput
+                id="inputPassword"
+                placeholder=""
+                name="password"
+                [(ngModel)]="password"
+                #passwordControl="ngModel"
+                minlength="8"
+              />
+              <mat-error class="error" *ngIf="passwordControl.touched && !passwordControl.valid">Campo Obrigatório!</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div *ngIf="errorMessage" class="col-sm-7 mb-1">
+            <div class="alert alert-danger mt-1" role="alert">{{ errorMessage }}</div>
+          </div>
+          <div class="col-sm-7 d-flex justify-content-end">
+            <button
+              type="button"
+              class="mat-raised-button mat-primary custom-button"
+              (click)="login()"
+              [disabled]="!formData.valid"
+            >
+              Login
+            </button>
+            <a href="signup" class="login-account">Criar Conta</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
