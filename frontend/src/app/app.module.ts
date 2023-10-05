@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { CommonModule, DatePipe } from '@angular/common';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +35,8 @@ import { WithdrawsComponent } from './components/main-page/withdraws/withdraws.c
 import { ContactsComponent } from './components/footer-info/contacts/contacts.component';
 import { TermsAndConditionsComponent } from './components/footer-info/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './components/footer-info/privacy-policy/privacy-policy.component';
+import { MovimentsComponent } from './components/main-page/moviments/moviments.component';
+import { MovimentsTableComponent } from './components/main-page/moviments/moviments-table/moviments-table.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +55,9 @@ import { PrivacyPolicyComponent } from './components/footer-info/privacy-policy/
     WithdrawsComponent,
     ContactsComponent,
     TermsAndConditionsComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    MovimentsComponent,
+    MovimentsTableComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +73,10 @@ import { PrivacyPolicyComponent } from './components/footer-info/privacy-policy/
     FormsModule,
     HttpClientModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule,
+    MatTableModule,
+    DatePipe
   ],
   providers: [AuthStatusComponent,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi:true}],
   bootstrap: [AppComponent]

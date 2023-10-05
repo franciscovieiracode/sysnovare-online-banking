@@ -8,6 +8,7 @@ import { DepositsComponent } from './components/main-page/deposits/deposits.comp
 import { PaymentsComponent } from './components/main-page/payments/payments.component';
 import { CellphonePaymentComponent } from './components/main-page/cellphone-payment/cellphone-payment.component';
 import { WithdrawsComponent } from './components/main-page/withdraws/withdraws.component';
+import { MovimentsComponent } from './components/main-page/moviments/moviments.component';
 
 const routes: Routes = [
   {path:'dashboard', component:DashboardComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'payments',component:PaymentsComponent},
   {path:'phone-payment',component:CellphonePaymentComponent},
   {path:'withdraw',component:WithdrawsComponent},
+  {path:'moviments', component:MovimentsComponent},
   {path: '**', redirectTo: 'login'}
 ];
 

@@ -6,6 +6,7 @@ const movementSchema = new mongoose.Schema({
     enum: ['payment', 'transfer', 'deposit', 'withdrawal', 'phone_payment'],
     required: true,
   },
+  typeInPT:String,
   date: {
     type: Date,
     default: Date.now,

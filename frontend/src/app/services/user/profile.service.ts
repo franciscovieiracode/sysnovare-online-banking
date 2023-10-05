@@ -24,6 +24,12 @@ export class ProfileService {
     .pipe(catchError(this.handleError));
   }
 
+    //Get Profile movements
+    getMovements():Observable<any>{
+      return this.http.get(endpoint+"get-moviments",httpOptions)
+      .pipe(catchError(this.handleError));
+    }
+
   handleError(error:HttpErrorResponse) {
     return throwError(() => {
         return error;

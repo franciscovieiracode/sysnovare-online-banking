@@ -21,6 +21,7 @@ const addBalance = async (request, h) => {
       const depositMovement = new Movement({
         type: 'deposit',
         amount: request.payload.amount,
+        typeInPT: "Depósito"
       });
   
       // Save the new Movement document
@@ -66,6 +67,7 @@ const withDrawBalance = async (request, h) => {
       const withdrawalMovement = new Movement({
         type: 'withdrawal',
         amount: request.payload.amount,
+        typeInPT: "Levantamento"
       });
   
       // Save the new Movement document
@@ -123,7 +125,8 @@ const transfers = async (request, h) => {
         amount: request.payload.amount,
         from: customer.iban,
         to: receiver.iban,
-        description: request.payload.description
+        description: request.payload.description,
+        typeInPT: "Transferência"
       });
 
       // Create a new Movement document for the receiver
@@ -131,7 +134,9 @@ const transfers = async (request, h) => {
         type: 'transfer',
         amount: request.payload.amount,
         from: receiver.iban,
-        to: customer.iban
+        to: customer.iban,
+        description: request.payload.description,
+        typeInPT: "Transferência"
       });
   
       // Save the new Movement document
@@ -180,7 +185,8 @@ const payments = async (request, h) => {
       const paymenttMovement = new Movement({
         type: 'payment',
         amount: request.payload.amount,
-        description: "Entidade: "+ request.payload.entity + " Referência: " + request.payload.reference
+        description: "Entidade: "+ request.payload.entity + " Referência: " + request.payload.reference,
+        typeInPT: "Pagamento Serviços"
       });
   
       // Save the new Movement document
@@ -226,7 +232,8 @@ const phonePayment = async (request, h) => {
         type: 'phone_payment',
         amount: request.payload.amount,
         description: request.payload.provider,
-        phoneNumber: request.payload.number
+        phoneNumber: request.payload.number,
+        typeInPT: "Carr. Telemóvel"
       });
   
       // Save the new Movement document
