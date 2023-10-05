@@ -10,9 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
-
-
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +29,9 @@ import { DepositsComponent } from './components/main-page/deposits/deposits.comp
 import { PaymentsComponent } from './components/main-page/payments/payments.component';
 import { CellphonePaymentComponent } from './components/main-page/cellphone-payment/cellphone-payment.component';
 import { WithdrawsComponent } from './components/main-page/withdraws/withdraws.component';
+import { ContactsComponent } from './components/footer-info/contacts/contacts.component';
+import { TermsAndConditionsComponent } from './components/footer-info/terms-and-conditions/terms-and-conditions.component';
+import { PrivacyPolicyComponent } from './components/footer-info/privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,10 @@ import { WithdrawsComponent } from './components/main-page/withdraws/withdraws.c
     DepositsComponent,
     PaymentsComponent,
     CellphonePaymentComponent,
-    WithdrawsComponent
+    WithdrawsComponent,
+    ContactsComponent,
+    TermsAndConditionsComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,8 @@ import { WithdrawsComponent } from './components/main-page/withdraws/withdraws.c
     MatCardModule,
     FormsModule,
     HttpClientModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [AuthStatusComponent,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi:true}],
   bootstrap: [AppComponent]

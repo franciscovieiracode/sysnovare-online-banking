@@ -1,0 +1,39 @@
+.dialog-content {
+    text-align: center; /* Center text horizontally */
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .dialog-logo {
+    max-width: 100px;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  h2 {
+    margin: 0;
+  }
+  
+  .contact-info {
+    text-align: center; /* Align text to the left */
+    margin-top: 5px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  

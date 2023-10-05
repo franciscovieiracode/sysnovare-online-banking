@@ -1,9 +1,9 @@
 <mat-toolbar  class="footer-toolbar">
     <div class="footer-top">
       <div class="footer-content">
-        <span class="footer-item" onclick="alert('123')">Termos e Condições</span>
-        <span class="footer-item" onclick="alert('123')">Política de Privacidade</span>
-        <span class="footer-item" onclick="alert('123')">Contactos</span>
+        <span class="footer-item" (click)="openTermsAndConditions()">Termos e Condições</span>
+        <span class="footer-item" (click)="openPrivacyPolicies()">Política de Privacidade</span>
+        <span class="footer-item" (click)="openContacts()">Contactos</span>
       </div>
     </div>
     <div class="footer-copyright">
