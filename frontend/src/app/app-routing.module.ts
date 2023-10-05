@@ -9,18 +9,19 @@ import { PaymentsComponent } from './components/main-page/payments/payments.comp
 import { CellphonePaymentComponent } from './components/main-page/cellphone-payment/cellphone-payment.component';
 import { WithdrawsComponent } from './components/main-page/withdraws/withdraws.component';
 import { MovimentsComponent } from './components/main-page/moviments/moviments.component';
+import { LoginStatusGuard } from './guards/login-status.guard';
 
 const routes: Routes = [
-  {path:'dashboard', component:DashboardComponent},
+  {path:'dashboard', component:DashboardComponent, canActivate:[LoginStatusGuard]},
   {path:'', component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  {path:'transfers', component:TransfersComponent},
-  {path:'deposits', component:DepositsComponent},
-  {path:'payments',component:PaymentsComponent},
-  {path:'phone-payment',component:CellphonePaymentComponent},
-  {path:'withdraw',component:WithdrawsComponent},
-  {path:'moviments', component:MovimentsComponent},
-  {path: '**', redirectTo: 'login'}
+  {path:'transfers', component:TransfersComponent, canActivate:[LoginStatusGuard]},
+  {path:'deposits', component:DepositsComponent, canActivate:[LoginStatusGuard]},
+  {path:'payments',component:PaymentsComponent, canActivate:[LoginStatusGuard]},
+  {path:'phone-payment',component:CellphonePaymentComponent, canActivate:[LoginStatusGuard]},
+  {path:'withdraw',component:WithdrawsComponent, canActivate:[LoginStatusGuard]},
+  {path:'moviments', component:MovimentsComponent, canActivate:[LoginStatusGuard]},
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
