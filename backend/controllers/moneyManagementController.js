@@ -122,7 +122,8 @@ const transfers = async (request, h) => {
         type: 'transfer',
         amount: request.payload.amount,
         from: customer.iban,
-        to: receiver.iban
+        to: receiver.iban,
+        description: request.payload.description
       });
 
       // Create a new Movement document for the receiver
@@ -224,7 +225,8 @@ const phonePayment = async (request, h) => {
       const phoneMovement = new Movement({
         type: 'phone_payment',
         amount: request.payload.amount,
-        description: "Rede: "+ request.payload.provider
+        description: request.payload.provider,
+        phoneNumber: request.payload.number
       });
   
       // Save the new Movement document

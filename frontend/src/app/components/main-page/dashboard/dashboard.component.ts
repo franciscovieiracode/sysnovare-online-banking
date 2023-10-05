@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -14,7 +13,7 @@ export class DashboardComponent implements OnInit{
   profile:any
 
   constructor(public getProfile:ProfileService,private titleService:Title,
-    private http: HttpClient, public route: Router){}
+     public router: Router){}
 
     ngOnInit(): void {
       this.getProfile.getCurrentProfile().subscribe({
@@ -26,8 +25,10 @@ export class DashboardComponent implements OnInit{
         },
         complete: () => console.info('Profile load completed')
       })
-  
-  
+    }
+
+    moviments(){
+      this.router.navigate(['moviments'])
     }
 
 }

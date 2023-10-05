@@ -18,14 +18,29 @@ export class OperationsService {
   constructor(private http: HttpClient, private router:Router) { }
 
   //Add Balance to account
-  addBalance(ammount:number):Observable<any>{
-    return this.http.post(endpoint+"add-balance",new addBalanceModel(ammount)).pipe(catchError(this.handleError));
+  addBalance(amount:number):Observable<any>{
+    return this.http.put(endpoint+"add-balance",new addBalanceModel(amount)).pipe(catchError(this.handleError));
   }
 
   //Withdraw money
-  withdrawMoney(){
-    
+  withdrawMoney(amount:number):Observable<any>{
+    return this.http.put(endpoint+"withdraw-balance",new withdralwMoneyModel(amount)).pipe(catchError(this.handleError));
   }
+
+  //Transfer money
+  transfer(name:string, amount:number, iban:string, description?:string):Observable<any>{
+    return this.http.post(endpoint+"transfer",new transferModel(name, amount, iban, description)).pipe(catchError(this.handleError));
+  }
+
+  //Payments
+  payment(entity:string, reference:string, amount:number):Observable<any>{
+    return this.http.post(endpoint+"payment",new paymentModel(entity, reference, amount,)).pipe(catchError(this.handleError));
+  }  
+
+  //Phone Payment
+  phonePayment(provider:string, number:string, amount:number):Observable<any>{
+    return this.http.post(endpoint+"phone-payment",new phonePaymentModel(provider, number, amount,)).pipe(catchError(this.handleError));
+  }    
 
   handleError(error:HttpErrorResponse) {
     return throwError(() => {
@@ -36,5 +51,21 @@ export class OperationsService {
 }
 
 export class addBalanceModel{
-  constructor(ammount:number){}
+  constructor(public amount:number){}
+}
+
+export class withdralwMoneyModel{
+  constructor(public amount:number){}
+}
+
+export class transferModel{
+  constructor(public name:string,public amount:number, public iban:string, public description?:string){}
+}
+
+export class paymentModel{
+  constructor(public entity:string,public reference:string, public amount:number){}
+}
+
+export class phonePaymentModel{
+  constructor(public provider:string,public number:string, public amount:number){}
 }

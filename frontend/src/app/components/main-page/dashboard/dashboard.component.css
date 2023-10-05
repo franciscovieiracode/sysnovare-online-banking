@@ -34,8 +34,7 @@
     margin-left: 2.8rem;
 
   }
-  /* Customize additional styles as needed */
-  
+    
   .middle{
     margin-top: 1rem;
   }
@@ -44,6 +43,7 @@
     font-size: large;
     font-weight: bold;
     color: #137e9e;
+    cursor: pointer;
   }
 
   .last{

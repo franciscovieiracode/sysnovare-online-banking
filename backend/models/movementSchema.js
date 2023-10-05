@@ -16,7 +16,8 @@ const movementSchema = new mongoose.Schema({
     required: true,
   },
   from: String, 
-  to: String
+  to: String,
+  phoneNumber: String
 });
 
 const Movement = mongoose.model('Movement', movementSchema);

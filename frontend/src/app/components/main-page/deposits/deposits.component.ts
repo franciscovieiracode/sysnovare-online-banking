@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { OperationsService } from 'src/app/services/money-management/operations.service';
 
 @Component({
@@ -11,15 +12,16 @@ export class DepositsComponent {
   depositAmount:number
   errorMessage:string | undefined = undefined;
   
-  constructor(private addBalance:OperationsService){
+  constructor(private depositService:OperationsService, private router:Router){
     this.depositAmount=0;
   }
 
   depositFunds(){
-    this.addBalance.addBalance(this.depositAmount).subscribe({
+    this.depositService.addBalance(this.depositAmount).subscribe({
       next: (data) => {
         if(data && data.status == true){
           console.log(data);
+          this.router.navigate(['dashboard'])
         }
       },
       error: (error) =>{

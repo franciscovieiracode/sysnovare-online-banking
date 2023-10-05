@@ -14,7 +14,7 @@ export class FooterComponent {
 
   openContacts() {
     const dialogRef = this.dialog.open(ContactsComponent, {
-      minWidth: '850px',
+      minWidth: '600px',
       minHeight: '300px',
     });
   }

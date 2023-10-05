@@ -16,9 +16,16 @@ const init = async () => {
     const server = Hapi.server({
         port: 3000,
         host: 'localhost',
-        "routes": {
-            "cors": true
-        }
+        routes: {
+            cors: {
+                //Dev purpose
+                origin: ['*'], // Allow all origins
+                headers: ['Authorization', 'Content-Type'],
+                exposedHeaders: ['Accept-Language'],
+                maxAge: 3600, 
+                credentials: true, 
+            },
+        },
     });
 
     try {

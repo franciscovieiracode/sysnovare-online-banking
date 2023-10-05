@@ -53,13 +53,13 @@
                   type="number"
                   required
                   matInput
-                  id="inputAmmount"
+                  id="inputAmount"
                   placeholder="Ex: 12.5"
-                  name="ammount"
-                  [(ngModel)]="ammount"
-                  #ammountControl="ngModel"
+                  name="amount"
+                  [(ngModel)]="amount"
+                  #amountControl="ngModel"
                 />
-                <mat-error class="error" *ngIf="ammountControl.touched && !ammountControl.valid">Campo Obrigatório!</mat-error>
+                <mat-error class="error" *ngIf="amountControl.touched && !amountControl.valid">Campo Obrigatório!</mat-error>
               </mat-form-field>
             </div>
           </div>

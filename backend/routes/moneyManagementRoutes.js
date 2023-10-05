@@ -8,7 +8,7 @@ const moneyManagement = {
     server.route([
       {
         method: 'PUT',
-        path: '/api/v1/money-management/add-balance/',
+        path: '/api/v1/money-management/add-balance',
         handler: moneyManagementController.addBalance,
         options: {
           //Swagger Specification
@@ -23,7 +23,7 @@ const moneyManagement = {
       },
       {
         method: 'PUT',
-        path: '/api/v1/money-management/withdraw-balance/',
+        path: '/api/v1/money-management/withdraw-balance',
         handler: moneyManagementController.withDrawBalance,
         options: {
           // Swagger Specification
@@ -45,7 +45,7 @@ const moneyManagement = {
       },
       {
         method: 'POST',
-        path: '/api/v1/money-management/transfer/',
+        path: '/api/v1/money-management/transfer',
         handler: moneyManagementController.transfers,
         options: {
           // Swagger Specification
@@ -56,13 +56,14 @@ const moneyManagement = {
               name: Joi.string().required().description('User Name'),
               amount: Joi.number().required().description('Amount'),
               iban: Joi.string().required().description('User Iban'),
+              description: Joi.string().optional().description('Description'),
             }),
           },
         }
       },
       {
         method: 'POST',
-        path: '/api/v1/money-management/payment/',
+        path: '/api/v1/money-management/payment',
         handler: moneyManagementController.payments,
         options: {
           // Swagger Specification
@@ -79,7 +80,7 @@ const moneyManagement = {
       },
       {
         method: 'POST',
-        path: '/api/v1/money-management/phone-payment/',
+        path: '/api/v1/money-management/phone-payment',
         handler: moneyManagementController.phonePayment,
         options: {
           // Swagger Specification
