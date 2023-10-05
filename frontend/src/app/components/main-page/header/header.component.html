@@ -4,12 +4,8 @@
     <a href="dashboard"><img src="../../../../assets/img/header/santander.png" alt="Logo" class="logo" height="22"></a>
   </div>
 
-  <!-- Right side Buttons -->
+  <!-- Right side Button -->
   <div *ngIf="authStatus.getStatus() == true" class="button-container">
-    <button mat-icon-button onclick="alert('123')">
-      <img src="../../../../assets/img/header/profile.png" alt="">
-      <span class="text">Área Pessoal</span>
-    </button>
     <div class="button-spacing"></div>
     <button (click)="logout()" mat-icon-button>
       <img src="../../../../assets/img/header/logout.png" alt="">
