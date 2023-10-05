@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const { secretKey } = require('../config/jwtSecret'); // Import your secret key
 const generateIban = require('../utils/ibanGenerator') //Import IBAN generator
 
+//Endpoint to SignUp in system
 const signUp = async (request, h) => {
   try {
     const { firstName, lastName, email, password } = request.payload;
@@ -43,6 +44,7 @@ const signUp = async (request, h) => {
   }
 };
 
+//Endpoint to login in system
 const login = async (request, h) => {
     try {
         const { email, password } = request.payload;
