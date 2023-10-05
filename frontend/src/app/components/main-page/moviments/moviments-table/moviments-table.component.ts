@@ -6,6 +6,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ProfileService } from 'src/app/services/user/profile.service';
 
+//Interface to be populatedwith API call
 export interface Moviments {
   type: string;
   amount: number;
@@ -23,12 +24,15 @@ export interface Moviments {
   styleUrls: ['./moviments-table.component.css']
 })
 export class MovimentsTableComponent {
+  //Variables
   movements!: Moviments[]
+  //Table collumn
   displayedColumns: string[] = ['type', 'amount', 'date', 'from', 'to', 'description'];
   dataSource:any
 
   constructor(private getMoviments: ProfileService) {}
 
+  //OnInit sends api call from the service getMoviments and reverses it to show it date organized
   ngOnInit():void  {
     this.getMoviments.getMovements().subscribe({
       next: (data) => {

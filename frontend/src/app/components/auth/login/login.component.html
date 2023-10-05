@@ -6,6 +6,7 @@
       <form #formData="ngForm">
         <div class="form-group row pb-2">
           <div class="col-sm-7">
+            <!-- Email Field -->
             <mat-form-field appearance="fill">
               <mat-label>Email</mat-label>
               <input
@@ -23,6 +24,7 @@
             </mat-form-field>
           </div>
         </div>
+        <!-- Password Field -->
         <div class="form-group row pb-2">
           <div class="col-sm-7">
             <mat-form-field appearance="fill">
@@ -46,6 +48,7 @@
           <div *ngIf="errorMessage" class="col-sm-7 mb-1">
             <div class="alert alert-danger mt-1" role="alert">{{ errorMessage }}</div>
           </div>
+          <!-- Buttons -->
           <div class="col-sm-7 d-flex justify-content-end">
             <button
               type="button"

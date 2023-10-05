@@ -69,5 +69,13 @@
     color: #ff5733; /* Customize the text color */
     font-weight: bold; /* Make the text bold */
     }
+
+.custom-snackbar {
+  margin-top: 10rem;
+  background-color: #ff5722; 
+  color: #fff; 
+  font-size: 66px;
+}
+
   
   

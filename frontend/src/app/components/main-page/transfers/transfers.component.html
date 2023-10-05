@@ -7,6 +7,7 @@
         <form #formData="ngForm">
           <div class="form-group row pb-2">
             <div class="col-sm-7">
+              <!-- Receiver Name -->
               <mat-form-field appearance="fill">
                 <mat-label>Nome do Destinatário</mat-label>
                 <input
@@ -24,6 +25,7 @@
             </div>
           </div>
 
+          <!-- Iban Field -->
           <div class="form-group row pb-2">
             <div class="col-sm-7">
               <mat-form-field appearance="fill">
@@ -45,6 +47,7 @@
             </div>
           </div>
 
+          <!-- Quantity Field -->
           <div class="form-group row pb-2">
             <div class="col-sm-7">
               <mat-form-field appearance="fill">
@@ -64,6 +67,7 @@
             </div>
           </div>
 
+          <!-- Description Field -->
           <div class="form-group row pb-2">
             <div class="col-sm-7">
               <mat-form-field appearance="fill">
@@ -86,6 +90,7 @@
               <div class="alert alert-danger mt-1" role="alert">{{ errorMessage }}</div>
             </div>
             <div class="col-sm-7 d-flex justify-content-end">
+              <!-- Buttons -->
               <button
                 type="button"
                 class="mat-raised-button mat-primary custom-button"

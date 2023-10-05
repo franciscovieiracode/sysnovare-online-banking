@@ -30,7 +30,7 @@ export class AuthService {
     return this.http.post<any>(endpoint+"signup", new RegisterModel(firstName, lastName,email,password)).pipe(catchError(this.handleError));
   }
 
-  
+  //Error Handler
   handleError(error:HttpErrorResponse) {
     return throwError(() => {
         return error;
@@ -38,13 +38,14 @@ export class AuthService {
   }
 }
 
+//Class to Signup
 export class RegisterModel{
   constructor(public firstName:string, public lastName:string, public email:string,
     public password:string ){}
 }
 
+//Class to login
 export class LoginModel{
-
   constructor(public email:string, public password:string){}
 
 }

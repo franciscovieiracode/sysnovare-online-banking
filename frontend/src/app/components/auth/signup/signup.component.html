@@ -6,6 +6,7 @@
       <form #formData="ngForm">
         <div class="form-group row pb-2">
           <div class="col-sm-6">
+            <!-- First Name Field -->
             <mat-form-field>
               <mat-label>Primeiro Nome</mat-label>
               <input
@@ -21,6 +22,7 @@
               <mat-error class="error" *ngIf="firstNameControl.touched && !firstNameControl.valid">Campo Obrigatório!</mat-error>
             </mat-form-field>
           </div>
+          <!-- Last Name Field -->
           <div class="col-sm-6">
             <mat-form-field>
               <mat-label>Apelido</mat-label>
@@ -38,6 +40,7 @@
             </mat-form-field>
           </div>
         </div>
+        <!-- Email Field -->
           <div class="form-group row pb-2">
             <div class="col-sm-7">
               <mat-form-field appearance="fill">
@@ -58,6 +61,7 @@
             </div>
           </div>
           
+          <!-- Password Field -->
           <div class="form-group row pb-2">
             <div class="col-sm-7">
               <mat-form-field appearance="fill">
@@ -80,6 +84,7 @@
           <div *ngIf="errorMessage" class="col-sm-7 mb-1">
             <div class="alert alert-danger mt-1" role="alert">{{ errorMessage }}</div>
           </div>
+          <!-- Buttons -->
           <div class="col-sm-7 d-flex justify-content-end">
             <button
               type="button"

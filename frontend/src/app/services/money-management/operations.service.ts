@@ -28,7 +28,7 @@ export class OperationsService {
   }
 
   //Transfer money
-  transfer(name:string, amount:number, iban:string, description?:string):Observable<any>{
+  transfer(name:string, amount:number, iban:string, description:string):Observable<any>{
     return this.http.post(endpoint+"transfer",new transferModel(name, amount, iban, description)).pipe(catchError(this.handleError));
   }
 
@@ -42,6 +42,7 @@ export class OperationsService {
     return this.http.post(endpoint+"phone-payment",new phonePaymentModel(provider, number, amount,)).pipe(catchError(this.handleError));
   }    
 
+  //Error handler
   handleError(error:HttpErrorResponse) {
     return throwError(() => {
         return error;
@@ -50,22 +51,27 @@ export class OperationsService {
 
 }
 
+//Class to add Balance
 export class addBalanceModel{
   constructor(public amount:number){}
 }
+//Class to Withdraw Money
 
 export class withdralwMoneyModel{
   constructor(public amount:number){}
 }
 
+//Class to Transfer Money
 export class transferModel{
-  constructor(public name:string,public amount:number, public iban:string, public description?:string){}
+  constructor(public name:string,public amount:number, public iban:string, public description:string){}
 }
 
+//Class to Make Payments
 export class paymentModel{
   constructor(public entity:string,public reference:string, public amount:number){}
 }
 
+//Class to Make Phone Payments
 export class phonePaymentModel{
   constructor(public provider:string,public number:string, public amount:number){}
 }

@@ -5,6 +5,7 @@
     <div class="all">
       <p class="title mat-display-2 pb-2">Carregamento de Telemóvel</p>
       <form #formData="ngForm">
+        <!-- Provider Field -->
         <div class="form-group row pb-2">
           <div class="col-sm-7">
             <mat-form-field appearance="fill">
@@ -21,6 +22,7 @@
           </div>
         </div>
 
+        <!-- Phone Number Field -->
         <div class="form-group row pb-2">
           <div class="col-sm-7">
             <mat-form-field appearance="fill">
@@ -42,6 +44,7 @@
           </div>
         </div>
 
+        <!-- Amount Field -->
         <div class="form-group row pb-2">
           <div class="col-sm-7">
             <mat-form-field appearance="fill">
@@ -61,6 +64,7 @@
           </div>
         </div>
 
+        <!-- Buttons -->
         <div class="form-group row">
           <div *ngIf="errorMessage" class="col-sm-7 mb-1">
             <div class="alert alert-danger mt-1" role="alert">{{ errorMessage }}</div>

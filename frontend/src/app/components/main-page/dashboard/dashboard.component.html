@@ -2,12 +2,15 @@
 <app-sidebar></app-sidebar>
 <div class="center-container">
   <div class="box-with-text">
+    <!-- First Name -->
     <h1 class="text-on-box">Olá, {{profile.firstName}}!</h1>
     <mat-card class="info-card">
+      <!-- Iban -->
       <mat-card-content>
         <div class="info-field iban">
           <span>{{profile.iban}}</span>
         </div>
+        <!-- Balance -->
         <div class="info-row">
           <div class="info-field">
             <strong>{{profile.balance}}</strong>
@@ -15,12 +18,14 @@
               <span>Saldo disponível</span>
             </div>
           </div>
+          <!-- Balance -->
           <div class="info-field">
             <strong>{{profile.balance}}</strong>
             <div class="info-row middle">
               <span>Saldo contabilístico</span>
             </div>
           </div>
+          <!-- Balance -->
           <div class="info-field">
             <strong>{{profile.balance}}</strong>
             <div class="info-row middle">
@@ -28,6 +33,7 @@
             </div>
           </div>
         </div>
+        <!-- Moviments Button -->
         <div class="info-field last">
           <span class="moviments" (click)="moviments()">Ver Movimentos</span>
         </div>

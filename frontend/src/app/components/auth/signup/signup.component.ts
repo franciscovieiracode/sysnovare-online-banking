@@ -32,11 +32,13 @@ export class SignupComponent {
     this.titleService.setTitle("Registo")
    }
 
+   //Checks before everything if has token, if it has,redirects to dashboard 
    ngOnInit(): void {
     if(this.loginStatus.getStatus() == true)
       this.router.navigate(["/dashboard"])
   }
 
+  //signup function,calls authService, creates user and stores a jwt token
   signup():void{
     this.authService.signup(this.firstName, this.lastName, this.email, this.password).subscribe({
       next: (data) => {
@@ -62,6 +64,7 @@ export class SignupComponent {
   })
   }
 
+  //redirects to login
   login(){
     this.router.navigate(['login'])
   }

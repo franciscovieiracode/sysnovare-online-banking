@@ -14,6 +14,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule, DatePipe } from '@angular/common';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -76,7 +77,8 @@ import { MovimentsTableComponent } from './components/main-page/moviments/movime
     MatDialogModule,
     MatPaginatorModule,
     MatTableModule,
-    DatePipe
+    DatePipe,
+    MatSnackBarModule
   ],
   providers: [AuthStatusComponent,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi:true}],
   bootstrap: [AppComponent]

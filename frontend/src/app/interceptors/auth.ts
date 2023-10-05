@@ -15,6 +15,7 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let access_token = JSON.parse(localStorage.getItem('currentUser') || "{}");
 
+    //Injects JWT token in every HTTP request, to be handled on server side
     if (access_token) {
       request = request.clone({
           setHeaders: { 

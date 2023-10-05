@@ -14,8 +14,11 @@ const addBalance = async (request, h) => {
         return h.response({ error: 'Customer not found' }).code(404);
       }
   
-      // Update the balance field
-      customer.balance += request.payload.amount
+      // Update the balance field, checks of amount > 0
+      if(request.payload.amount > 0)
+        customer.balance += request.payload.amount
+      else
+        return h.response({error: 'Invalid Amount'}).code(400);
   
       // Create a new Movement document for the deposit
       const depositMovement = new Movement({
@@ -227,7 +230,7 @@ const phonePayment = async (request, h) => {
         return h.response({error: "Insufficuent funds"}).code(400);
       }
   
-      // Create a new Movement document for the deposit
+      // Create a new Movement document for the phone payment
       const phoneMovement = new Movement({
         type: 'phone_payment',
         amount: request.payload.amount,

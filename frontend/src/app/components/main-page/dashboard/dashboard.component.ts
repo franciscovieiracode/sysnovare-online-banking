@@ -10,11 +10,15 @@ import { ProfileService } from 'src/app/services/user/profile.service';
 })
 export class DashboardComponent implements OnInit{
 
+  //Profile variable
   profile:any
 
   constructor(public getProfile:ProfileService,private titleService:Title,
-     public router: Router){}
+     public router: Router){
+      this.titleService.setTitle('Dashboard')
+     }
 
+    //Calls getProfile OnInit to show profile when component is loaded
     ngOnInit(): void {
       this.getProfile.getCurrentProfile().subscribe({
         next: (data) => {
