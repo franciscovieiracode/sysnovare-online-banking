@@ -46,3 +46,5 @@ If you'd like to explore the Money Management Application or review the code, yo
 9. npm i
 
 10. npm start
+
+11. For example use customer sys@gmail.com with password 123123123
