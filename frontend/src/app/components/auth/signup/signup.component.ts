@@ -52,9 +52,9 @@ export class SignupComponent {
         console.log(error.error);
         
         if(error.status == 400){
-          this.errorMessage = "User already registed"
+          this.errorMessage = "Email já Registado"
           this.wrong=true
-          setTimeout(()=>{this.wrong=false},3000)
+          setTimeout(()=>{this.errorMessage = ""},1500)
         }
         else {
           this.errorMessage ="Please try again later"

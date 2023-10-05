@@ -44,8 +44,8 @@ export class LoginComponent {
         console.log(error.error);
         
         if(error.status == 401){
-          this.errorMessage = "Wrong credentials"
-          setTimeout(()=>{this.errorMessage =""},2000)
+          this.errorMessage = "Credenciais Não Válidas"
+          setTimeout(()=>{this.errorMessage =""},1500)
         }
         else {
           this.errorMessage ="Please try again later"
