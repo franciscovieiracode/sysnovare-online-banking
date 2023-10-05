@@ -21,6 +21,7 @@
   - Phone Payments Available
   - List of Transactions
   - Protected Routes
+  - Swagger Documentation at endpoint /documentation
 
 ## How to Run
 
